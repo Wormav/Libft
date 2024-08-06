@@ -6,7 +6,7 @@
 /*   By: jlorette <jlorette@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/06 15:27:48 by jlorette          #+#    #+#             */
-/*   Updated: 2024/08/06 15:29:05 by jlorette         ###   ########.fr       */
+/*   Updated: 2024/08/06 15:55:20 by jlorette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 #include <ctype.h>
 #include <stdlib.h>
 #include "libft.h"
+
+
 
 void test_ft_atoi(void) {
     printf("Testing ft_atoi:\n");
@@ -81,10 +83,12 @@ void test_ft_memcmp(void) {
 
 void test_ft_memcpy(void) {
     printf("Testing ft_memcpy:\n");
-    char dest1[20];
-    char dest2[20];
+    char dest1[20] = {0};
+    char dest2[20] = {0}; 
     memcpy(dest1, "Hello, world!", 13);
+    dest1[13] = '\0';
     ft_memcpy(dest2, "Hello, world!", 13);
+    dest2[13] = '\0';
     printf("Expected: %s, Got: %s\n\n", dest1, dest2);
 }
 
@@ -135,8 +139,10 @@ void test_ft_strlen(void) {
 
 void test_ft_strncmp(void) {
     printf("Testing ft_strncmp:\n");
-    printf("Input: 'Hello' vs 'Hello', 5, Expected: %d, Got: %d\n", strncmp("Hello", "Hello", 5), ft_strncmp("Hello", "Hello", 5));
-    printf("Input: 'Hello' vs 'World', 5, Expected: %d, Got: %d\n\n", strncmp("Hello", "World", 5), ft_strncmp("Hello", "World", 5));
+    printf("Input: 'Hello' vs 'Hello', 5, Expected: 0, Got: %d\n", ft_strncmp("Hello", "Hello", 5));
+    printf("Input: 'Hello' vs 'World', 5, Expected: -1, Got: %d\n", ft_strncmp("Hello", "World", 5));
+    printf("Input: 'Hello' vs 'HelLo', 5, Expected: 0, Got: %d\n", ft_strncmp("Hello", "HelLo", 5));
+    printf("Input: 'Hello' vs 'Hell', 5, Expected: 'o', Got: %d\n\n", ft_strncmp("Hello", "Hell", 5));
 }
 
 void test_ft_strnstr(void) {
