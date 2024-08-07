@@ -6,7 +6,7 @@
 /*   By: jlorette <jlorette@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/05 13:04:10 by jlorette          #+#    #+#             */
-/*   Updated: 2024/08/07 16:07:48 by jlorette         ###   ########.fr       */
+/*   Updated: 2024/08/07 22:07:58 by jlorette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ void	*ft_memcpy(void *dest, const void *src, size_t n);
 void	*ft_memmove(void *dest, const void *src, size_t n);
 void	*ft_memset(void *s, int c, size_t n);
 char	*ft_strchr(const char *s, int c);
+char	*ft_strtrim(char const *s1, char const *set);
 char	*ft_strdup(const char *src);
 size_t	ft_strlcat(char *dest, const char *src, unsigned int size);
 size_t	ft_strlcpy(char *dest, const char *src, unsigned int size);
