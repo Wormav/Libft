@@ -6,7 +6,7 @@
 /*   By: jlorette <jlorette@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/06 15:27:48 by jlorette          #+#    #+#             */
-/*   Updated: 2024/08/06 15:55:20 by jlorette         ###   ########.fr       */
+/*   Updated: 2024/08/06 22:17:19 by jlorette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,6 @@
 #include <ctype.h>
 #include <stdlib.h>
 #include "libft.h"
-
-
 
 void test_ft_atoi(void) {
     printf("Testing ft_atoi:\n");
