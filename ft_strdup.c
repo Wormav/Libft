@@ -6,7 +6,7 @@
 /*   By: jlorette <jlorette@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/07 15:43:26 by jlorette          #+#    #+#             */
-/*   Updated: 2024/08/07 16:13:46 by jlorette         ###   ########.fr       */
+/*   Updated: 2024/08/08 00:19:29 by jlorette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,3 +24,4 @@ char	*ft_strdup(const char *src)
 	ft_strlcpy(result, src, len);
 	return (result);
 }
+
