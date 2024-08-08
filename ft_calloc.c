@@ -6,21 +6,22 @@
 /*   By: jlorette <jlorette@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/07 15:58:41 by jlorette          #+#    #+#             */
-/*   Updated: 2024/08/07 16:08:29 by jlorette         ###   ########.fr       */
+/*   Updated: 2024/08/08 16:51:41 by jlorette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_calloc( size_t elementCount, size_t elementSize )
+void	*ft_calloc(size_t element_count, size_t element_size)
 {
 	void	*result;
 
-	if (elementSize && elementCount * elementSize / elementSize != elementCount)
+	if (element_size && element_count * element_size / element_size
+		!= element_count)
 		return (NULL);
-	result = malloc(elementCount * elementSize);
+	result = malloc(element_count * element_size);
 	if (!result)
 		return (NULL);
-	ft_bzero(result, elementCount * elementSize);
+	ft_bzero(result, element_count * element_size);
 	return (result);
 }

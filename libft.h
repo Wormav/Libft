@@ -6,7 +6,7 @@
 /*   By: jlorette <jlorette@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/05 13:04:10 by jlorette          #+#    #+#             */
-/*   Updated: 2024/08/08 15:24:42 by jlorette         ###   ########.fr       */
+/*   Updated: 2024/08/08 16:52:00 by jlorette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,13 @@
 
 int		ft_atoi(const char *str);
 void	ft_bzero(void *s, size_t n);
-void	*calloc( size_t elementCount, size_t elementSize );
+void	*ft_calloc(size_t element_count, size_t element_size);
 int		ft_isalnum(int i);
 int		ft_isalpha(int c);
 int		ft_isascii(int i);
 int		ft_isdigit(int c);
 int		ft_isprint(int i);
+char	*ft_itoa(int n);
 void	*ft_memchr(const void *s, int c, size_t n);
 int		ft_memcmp(const void *s1, const void *s2, size_t n);
 void	*ft_memcpy(void *dest, const void *src, size_t n);
