@@ -6,7 +6,7 @@
 /*   By: jlorette <jlorette@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/08 13:08:31 by jlorette          #+#    #+#             */
-/*   Updated: 2024/08/08 13:29:57 by jlorette         ###   ########.fr       */
+/*   Updated: 2024/08/08 16:13:32 by jlorette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		return (NULL);
 	s_len = ft_strlen(s);
 	if (start >= s_len)
-		return ft_strdup("");
+		return (ft_strdup(""));
 	if (len > s_len - start)
 		result_len = s_len - start;
 	else
