@@ -6,7 +6,7 @@
 /*   By: jlorette <jlorette@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/06 15:27:48 by jlorette          #+#    #+#             */
-/*   Updated: 2024/08/08 16:54:37 by jlorette         ###   ########.fr       */
+/*   Updated: 2024/08/08 20:13:17 by jlorette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -263,6 +263,9 @@ void test_ft_itoa(void) {
     print_test_result(strcmp(ft_itoa(-123456), "-123456") == 0);
     print_test_result(strcmp(ft_itoa(-2147483648), "-2147483648") == 0);
 }
+
+
+
 
 int main(void) {
     test_ft_atoi();
