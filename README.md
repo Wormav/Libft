@@ -1,6 +1,6 @@
 # Libft
 
-![c](https://img.shields.io/badge/language-C-gray)
+![c](https://img.shields.io/badge/language-C-white)
 
 ## Projet
 
