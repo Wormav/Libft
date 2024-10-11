@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jlorette <jlorette@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/07 21:43:22 by jlorette          #+#    #+#             */
-/*   Updated: 2024/08/07 22:17:07 by jlorette         ###   ########.fr       */
+/*   Created: 2024/10/08 13:22:46 by jlorette          #+#    #+#             */
+/*   Updated: 2024/10/11 14:08:42 by jlorette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,3 +35,4 @@ char	*ft_strtrim(char const *s1, char const *set)
 	ft_strlcpy(result, &s1[start], end - start + 2);
 	return (result);
 }
+
