@@ -67,12 +67,12 @@ $(OBJ_DIR)%.o: $(PRINTF_DIR)src/%.c $(HEADER)
 # Nettoyage des fichiers objets
 clean:
 	@rm -rf $(OBJ_DIR)
-	@echo "$(RED)$(CLEAN_EMOJI) Fichiers objets supprimés$(RESET)"
+	@echo "$(RED)$(CLEAN_EMOJI)  Fichiers objets supprimés$(RESET)"
 
 # Nettoyage complet
 fclean: clean
 	@rm -f $(NAME)
-	@echo "$(RED)$(CLEAN_EMOJI) $(NAME) supprimé$(RESET)"
+	@echo "$(RED)$(CLEAN_EMOJI)  $(NAME) supprimé$(RESET)"
 
 # Reconstruction
 re: fclean all

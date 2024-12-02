@@ -6,7 +6,7 @@
 /*   By: jlorette <jlorette@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/05 13:04:10 by jlorette          #+#    #+#             */
-/*   Updated: 2024/12/02 23:46:17 by jlorette         ###   ########.fr       */
+/*   Updated: 2024/12/02 23:50:08 by jlorette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <stdarg.h>
 # include <stdlib.h>
 # include <unistd.h>
+
 typedef struct s_list
 {
 	void			*content;
