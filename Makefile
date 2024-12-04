@@ -6,11 +6,13 @@ NAME = libft.a
 # Couleurs pour le terminal
 GREEN = \033[1;32m
 RED = \033[1;31m
+YELLOW = \033[1;33m
 RESET = \033[0m
 
 # Emojis
 SUCCESS_EMOJI = ✅
 CLEAN_EMOJI = 🗑️
+BUILD_EMOJI = 🛠️
 
 # Répertoires
 OBJ_DIR = obj/
@@ -59,17 +61,22 @@ $(OBJ_DIR):
 	@mkdir -p $(OBJ_DIR)
 
 $(NAME): $(ALL_OBJ)
+	@echo "$(YELLOW)$(BUILD_EMOJI)  Compilation en cours$(RESET)..."
+	@sleep 0.5
 	@ar rcs $(NAME) $(ALL_OBJ)
-	@echo "$(GREEN)$(SUCCESS_EMOJI) Compilation réussie : $(NAME)$(RESET)"
+	@echo "$(GREEN)$(SUCCESS_EMOJI)  Compilation réussie : $(NAME)$(RESET)"
 
 # Compilation des fichiers objets
 $(OBJ_DIR)%.o: $(SRC_DIR)%.c $(HEADER)
+	@echo "$(YELLOW)$(BUILD_EMOJI)  Compilation : $<$(RESET)"
 	@$(CC) $(CFLAGS) -c $< -o $@
 
 $(OBJ_DIR)%.o: $(PRINTF_DIR)src/%.c $(HEADER)
+	@echo "$(YELLOW)$(BUILD_EMOJI)  Compilation : $<$(RESET)"
 	@$(CC) $(CFLAGS) -c $< -o $@
 
 $(OBJ_DIR)%.o: $(GNL_DIR)%.c $(HEADER)
+	@echo "$(YELLOW)$(BUILD_EMOJI)  Compilation : $<$(RESET)"
 	@$(CC) $(CFLAGS) -c $< -o $@
 
 # Nettoyage des fichiers objets
