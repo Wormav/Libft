@@ -6,12 +6,16 @@
 /*   By: jlorette <jlorette@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/05 13:04:10 by jlorette          #+#    #+#             */
-/*   Updated: 2024/12/02 23:50:08 by jlorette         ###   ########.fr       */
+/*   Updated: 2024/12/04 16:22:07 by jlorette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
+
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 42
+# endif
 
 # include <stdarg.h>
 # include <stdlib.h>
@@ -23,6 +27,13 @@ typedef struct s_list
 	struct s_list	*next;
 }					t_list;
 
+typedef struct s_list_gnl
+{
+	char				*content;
+	struct s_list_gnl	*next;
+}					t_list_gnl;
+
+// libft legacy
 int					ft_atoi(const char *str);
 void				ft_bzero(void *s, size_t n);
 void				*ft_calloc(size_t element_count, size_t element_size);
@@ -68,6 +79,8 @@ char				*ft_strrchr(const char *s, int c);
 char				*ft_substr(char const *s, unsigned int start, size_t len);
 int					ft_tolower(int c);
 int					ft_toupper(int c);
+
+// ft_printf
 int					ft_printf(int fd, const char *str, ...);
 void				ft_putnbr_count(int n, int *count, int fd);
 void				print_pourcent(int *count, int fd);
@@ -75,5 +88,13 @@ void				putnbr_hex_fd(unsigned int n, int *count, char format,
 						int fd);
 void				putnbr_unsigned_fd(unsigned int n, int *count, int fd);
 int					putptr(void *ptr, int fd);
+
+// get_next_line
+void				alloc_line(char **line, t_list_gnl *storage);
+char				*copy_after_newline(const char *content, int start);
+void				free_storage(t_list_gnl *storage);
+char				*get_next_line(int fd);
+int					search_new_line(t_list_gnl *storage);
+t_list_gnl			*last_node(t_list_gnl *storage);
 
 #endif

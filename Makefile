@@ -1,3 +1,4 @@
+# Variables pour les répertoires et les fichiers
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 NAME = libft.a
@@ -15,6 +16,7 @@ CLEAN_EMOJI = 🗑️
 OBJ_DIR = obj/
 SRC_DIR = ./
 PRINTF_DIR = ft_printf/
+GNL_DIR = get_next_line/
 
 # Fichiers de la libft
 SRC = ft_atoi.c ft_bzero.c ft_isalnum.c ft_isalpha.c ft_isascii.c \
@@ -37,10 +39,15 @@ SRCB = ft_lstnew_bonus.c ft_lstadd_front_bonus.c ft_lstsize_bonus.c \
 PRINTF_SRC = ft_printf/src/decimal_convert.c ft_printf/src/ft_printf.c \
              ft_printf/src/string_convert.c
 
+# Fichiers get_next_line
+GNL_SRC = get_next_line.c get_next_line_utils.c
+
 # Objets
 OBJ = $(addprefix $(OBJ_DIR), $(SRC:.c=.o))
 OBJB = $(addprefix $(OBJ_DIR), $(SRCB:.c=.o))
 PRINTF_OBJ = $(addprefix $(OBJ_DIR), $(notdir $(PRINTF_SRC:.c=.o)))
+GNL_OBJ = $(addprefix $(OBJ_DIR), $(GNL_SRC:.c=.o))
+ALL_OBJ = $(OBJ) $(PRINTF_OBJ) $(OBJB) $(GNL_OBJ)
 
 # Headers
 HEADER = libft.h
@@ -51,17 +58,18 @@ all: $(OBJ_DIR) $(NAME)
 $(OBJ_DIR):
 	@mkdir -p $(OBJ_DIR)
 
-$(NAME): $(OBJ) $(PRINTF_OBJ) $(OBJB)
-	@if [ ! -f $(NAME) ] || [ "$(OBJ) $(PRINTF_OBJ) $(OBJB)" -nt "$(NAME)" ]; then \
-		ar rcs $(NAME) $(OBJ) $(PRINTF_OBJ) $(OBJB); \
-		echo "$(GREEN)$(SUCCESS_EMOJI) Compilation réussie : $(NAME)$(RESET)"; \
-	fi
+$(NAME): $(ALL_OBJ)
+	@ar rcs $(NAME) $(ALL_OBJ)
+	@echo "$(GREEN)$(SUCCESS_EMOJI) Compilation réussie : $(NAME)$(RESET)"
 
 # Compilation des fichiers objets
 $(OBJ_DIR)%.o: $(SRC_DIR)%.c $(HEADER)
 	@$(CC) $(CFLAGS) -c $< -o $@
 
 $(OBJ_DIR)%.o: $(PRINTF_DIR)src/%.c $(HEADER)
+	@$(CC) $(CFLAGS) -c $< -o $@
+
+$(OBJ_DIR)%.o: $(GNL_DIR)%.c $(HEADER)
 	@$(CC) $(CFLAGS) -c $< -o $@
 
 # Nettoyage des fichiers objets
