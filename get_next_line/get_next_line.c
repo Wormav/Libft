@@ -6,7 +6,7 @@
 /*   By: jlorette <jlorette@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/14 12:39:58 by jlorette          #+#    #+#             */
-/*   Updated: 2024/12/04 16:23:39 by jlorette         ###   ########.fr       */
+/*   Updated: 2025/02/25 00:43:38 by jlorette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,11 @@ const char *buffer, int read_return)
 	t_list_gnl	*last;
 	int			i;
 
-	new_node = malloc(sizeof(t_list_gnl));
+	new_node = lp_alloc(sizeof(t_list_gnl));
 	if (new_node == NULL)
 		return ;
 	new_node->next = NULL;
-	new_node->content = malloc(sizeof(char) * (read_return + 1));
+	new_node->content = lp_alloc(sizeof(char) * (read_return + 1));
 	if (new_node->content == NULL)
 		return ;
 	i = 0;
@@ -50,7 +50,7 @@ static void	read_and_stock(int fd, t_list_gnl **storage)
 	read_return = 1;
 	while (!search_new_line(*storage) && read_return != 0)
 	{
-		buffer = malloc(sizeof(char) * (BUFFER_SIZE + 1));
+		buffer = lp_alloc(sizeof(char) * (BUFFER_SIZE + 1));
 		if (!buffer)
 			return ;
 		read_return = (int)read(fd, buffer, BUFFER_SIZE);
@@ -61,12 +61,12 @@ static void	read_and_stock(int fd, t_list_gnl **storage)
 		}
 		if ((*storage == NULL && read_return == 0) || read_return == -1)
 		{
-			free(buffer);
+			lp_free(buffer);
 			return ;
 		}
 		buffer[read_return] = '\0';
 		add_storage(storage, buffer, read_return);
-		free(buffer);
+		lp_free(buffer);
 	}
 }
 
@@ -112,13 +112,13 @@ static void	reset_storage(t_list_gnl **storage, int fd)
 		i++;
 	if (last_node(*storage)->content[i] == '\n')
 		i++;
-	reset_node = malloc(sizeof(t_list_gnl));
+	reset_node = lp_alloc(sizeof(t_list_gnl));
 	if (!reset_node)
 		return ;
 	reset_node->content = copy_after_newline(last_node(*storage)->content, i);
 	if (!reset_node->content)
 	{
-		free(reset_node);
+		lp_free(reset_node);
 		return ;
 	}
 	reset_node->next = NULL;
@@ -150,7 +150,7 @@ char	*get_next_line(int fd)
 	{
 		free_storage(storage);
 		storage = NULL;
-		free(line);
+		lp_free(line);
 		return (NULL);
 	}
 	return (line);

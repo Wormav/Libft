@@ -6,7 +6,7 @@
 /*   By: jlorette <jlorette@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/07 21:43:22 by jlorette          #+#    #+#             */
-/*   Updated: 2024/08/07 22:17:07 by jlorette         ###   ########.fr       */
+/*   Updated: 2025/02/25 00:42:09 by jlorette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 		start++;
 	while (end > start && ft_strchr(set, s1[end]))
 		end--;
-	result = malloc(end - start + 2);
+	result = lp_alloc(end - start + 2);
 	if (!result)
 		return (NULL);
 	ft_strlcpy(result, &s1[start], end - start + 2);

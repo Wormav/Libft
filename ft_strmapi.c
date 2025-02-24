@@ -6,7 +6,7 @@
 /*   By: jlorette <jlorette@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/08 19:47:29 by jlorette          #+#    #+#             */
-/*   Updated: 2024/08/08 20:07:31 by jlorette         ###   ########.fr       */
+/*   Updated: 2025/02/25 00:42:06 by jlorette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	if (!s || !f)
 		return (NULL);
 	len = ft_strlen(s);
-	result = (char *)malloc(sizeof(char) * (len + 1));
+	result = (char *)lp_alloc(sizeof(char) * (len + 1));
 	if (!result)
 		return (NULL);
 	i = 0;

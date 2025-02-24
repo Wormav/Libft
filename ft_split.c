@@ -6,7 +6,7 @@
 /*   By: jlorette <jlorette@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/08 14:27:31 by jlorette          #+#    #+#             */
-/*   Updated: 2024/08/08 16:11:14 by jlorette         ###   ########.fr       */
+/*   Updated: 2025/02/25 00:43:22 by jlorette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,10 @@ static void	ft_free_all(char **result, int words)
 {
 	while (words >= 0)
 	{
-		free(result[words]);
+		lp_free(result[words]);
 		words--;
 	}
-	free(result);
+	lp_free(result);
 }
 
 static void	ft_search_index(char const *s, char c, int *start, int *end)
@@ -52,7 +52,7 @@ int start_index, int end_index)
 {
 	int	i;
 
-	*word = malloc(sizeof(char) * (end_index - start_index + 1));
+	*word = lp_alloc(sizeof(char) * (end_index - start_index + 1));
 	if (!*word)
 		return (0);
 	i = 0;
@@ -77,7 +77,7 @@ char	**ft_split(char const *s, char c)
 	if (!s)
 		return (NULL);
 	words = ft_count_words(s, c);
-	result = malloc(sizeof(char *) * (words + 1));
+	result = lp_alloc(sizeof(char *) * (words + 1));
 	if (!result)
 		return (NULL);
 	i = 0;

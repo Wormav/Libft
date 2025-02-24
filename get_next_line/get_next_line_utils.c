@@ -6,7 +6,7 @@
 /*   By: jlorette <jlorette@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/14 12:31:39 by jlorette          #+#    #+#             */
-/*   Updated: 2024/12/04 16:23:04 by jlorette         ###   ########.fr       */
+/*   Updated: 2025/02/25 00:43:27 by jlorette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,9 +50,9 @@ void	free_storage(t_list_gnl *storage)
 	current = storage;
 	while (current)
 	{
-		free(current->content);
+		lp_free(current->content);
 		next = current->next;
-		free(current);
+		lp_free(current);
 		current = next;
 	}
 }
@@ -75,7 +75,7 @@ void	alloc_line(char **line, t_list_gnl *storage)
 		}
 		storage = storage->next;
 	}
-	*line = malloc(sizeof(char) * (len + 1));
+	*line = lp_alloc(sizeof(char) * (len + 1));
 	if (!*line)
 		return ;
 }
@@ -89,7 +89,7 @@ char	*copy_after_newline(const char *content, int start)
 	length = 0;
 	while (content[start + length])
 		length++;
-	new_content = malloc(sizeof(char) * (length + 1));
+	new_content = lp_alloc(sizeof(char) * (length + 1));
 	if (!new_content)
 		return (NULL);
 	i = 0;

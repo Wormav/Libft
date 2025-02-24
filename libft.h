@@ -6,7 +6,7 @@
 /*   By: jlorette <jlorette@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/05 13:04:10 by jlorette          #+#    #+#             */
-/*   Updated: 2024/12/04 16:22:07 by jlorette         ###   ########.fr       */
+/*   Updated: 2025/02/25 00:44:47 by jlorette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,5 +96,9 @@ void				free_storage(t_list_gnl *storage);
 char				*get_next_line(int fd);
 int					search_new_line(t_list_gnl *storage);
 t_list_gnl			*last_node(t_list_gnl *storage);
+
+// leaks_protector
+void				lp_free(void *address);
+void				*lp_alloc(size_t size);
 
 #endif

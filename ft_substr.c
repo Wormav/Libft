@@ -6,7 +6,7 @@
 /*   By: jlorette <jlorette@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/08 13:08:31 by jlorette          #+#    #+#             */
-/*   Updated: 2024/08/08 16:13:32 by jlorette         ###   ########.fr       */
+/*   Updated: 2025/02/25 00:42:12 by jlorette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		result_len = s_len - start;
 	else
 		result_len = len;
-	result = malloc(sizeof(char) * result_len + 1);
+	result = lp_alloc(sizeof(char) * result_len + 1);
 	if (!result)
 		return (NULL);
 	ft_strlcpy(result, &s[start], result_len + 1);

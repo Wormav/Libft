@@ -6,7 +6,7 @@
 /*   By: jlorette <jlorette@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/08 16:28:43 by jlorette          #+#    #+#             */
-/*   Updated: 2024/08/08 16:48:35 by jlorette         ###   ########.fr       */
+/*   Updated: 2025/02/25 00:41:27 by jlorette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ char	*ft_itoa(int n)
 
 	nb = n;
 	size = ft_char_size(nb);
-	result = malloc(sizeof(char) * (size + 1));
+	result = lp_alloc(sizeof(char) * (size + 1));
 	if (!result)
 		return (NULL);
 	result[size] = '\0';
