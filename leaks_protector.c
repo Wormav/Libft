@@ -6,7 +6,7 @@
 /*   By: jlorette <jlorette@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 00:36:43 by jlorette          #+#    #+#             */
-/*   Updated: 2025/03/11 18:47:48 by jlorette         ###   ########.fr       */
+/*   Updated: 2025/03/25 17:45:16 by jlorette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,9 +66,15 @@ void	lp_free(void *address)
 static void	lp_push(void *malloc_address)
 {
 	t_list	**lst;
+	t_list	*new_node;
 
+	if (!malloc_address)
+		return ;
 	lst = alloc_collector();
-	ft_lstadd_front(lst, ft_lstnew(malloc_address));
+	new_node = ft_lstnew(malloc_address);
+	if (!new_node)
+		return ;
+	ft_lstadd_front(lst, new_node);
 }
 
 void	*lp_alloc(size_t size)
@@ -76,6 +82,8 @@ void	*lp_alloc(size_t size)
 	void	*ptr;
 
 	ptr = ft_calloc(1, size);
+	if (!ptr)
+		return (NULL);
 	lp_push(ptr);
 	return (ptr);
 }
